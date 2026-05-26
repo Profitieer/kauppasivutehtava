@@ -7,37 +7,22 @@
    
     <meta name="description" content="We have a wide collection of electronics, phones, books and games">
     <meta name="keywords" content="phones, books, games, electronics">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styles.css">
 
     <title>Document</title>
 </head>
 <body>
     
+    <?php include 'includes/nav.php'; ?>
 
-    <nav>
-        <div class="brand">Our Store</div>
+    <?php include 'includes/header.php'; ?>
 
-        <div class="links"></div>
-
-            <a data-active="index" href="index.php">Home</a>
-            
-            <a data-active="about" href="about.php">About</a>
-
-            <a data-active="contact" href="contact.php">Contact</a>
-
-    </nav>
-
-    <header></header>
 
 
     <main></main>
 
 
-
-
-
-    <footer></footer>
-
+    <?php include 'includes/footer.php'; ?>
 
     <script src="javascript/script.js"></script>
 </body>
