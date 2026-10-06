@@ -1,5 +1,15 @@
 <?php require "php/functions.php" ?>
 
+<?php
+
+        if(isset($_GET['category'])){
+
+                $cat = urldecode($_GET['category']); 
+
+        }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +22,9 @@
     <link rel="stylesheet" href="css/styles.css">
 
     <title>Document</title>
+
 </head>
-<body id="index">
+<body>
     
     <?php include 'includes/nav.php'; ?>
 
@@ -48,9 +59,9 @@
 
         <div class="right">
 
-                <div class="section-title">Home Page</div>
+                <div class="section-title">Products in the <?php echo ucfirst($cat) ?> category</div>
 
-                <?php $products = getHomePageProducts(4) ?>
+                <?php $products = getProductsByCategory($cat) ?>
 
                 <div class="product">
 

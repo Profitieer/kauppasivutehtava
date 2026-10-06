@@ -1,5 +1,17 @@
 <?php require "php/functions.php" ?>
 
+<?php
+
+        if(isset($_GET['title'])){
+
+                $title = urldecode($_GET['title']); 
+
+                $product = getProductByTitle($title);
+
+        }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,13 +19,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
-    <meta name="description" content="We have a wide collection of electronics, phones, books and games">
-    <meta name="keywords" content="phones, books, games, electronics">
+    <meta name="description" content="<?php echo $product[0]['meta_description'] ?>">
+    <meta name="keywords" content="<?php echo $product[0]['meta_keywords'] ?>">
     <link rel="stylesheet" href="css/styles.css">
 
-    <title>Document</title>
+    <title><?php echo $title ?></title>
+    <style>
+        
+        footer{
+                
+                position: fixed;
+
+                bottom: 0;
+
+        } 
+        
+     </style>
+
 </head>
-<body id="index">
+<body>
     
     <?php include 'includes/nav.php'; ?>
 
@@ -48,21 +72,15 @@
 
         <div class="right">
 
-                <div class="section-title">Home Page</div>
+                <div class="section-title">Product Details</div>
 
-                <?php $products = getHomePageProducts(4) ?>
 
                 <div class="product">
 
-                    <?php
-
-                    foreach($products as $product){
-
-                    ?>
 
                     <div class="product-left">
 
-                            <img src="<?php echo "products/{$product['image']}" ?>" alt="">
+                            <img src="<?php echo "products/{$product[0]['image']}" ?>" alt="">
 
                     </div>
 
@@ -70,9 +88,7 @@
 
                             <p class="title">
 
-                                    <a href="product.php?title=<?php echo urlencode($product['title']) ?>">
-
-                                        <?php echo $product['title'] ?>
+                                        <?php echo $product[0]['title'] ?>
 
                                     </a>
 
@@ -80,21 +96,17 @@
 
                             <p class="description">
 
-                                    <?php echo $product['description'] ?>
+                                    <?php echo $product[0]['description'] ?>
 
                             </p>
 
                             <p class="price">
 
-                                    <?php echo $product['price'] ?>
+                                    <?php echo $product[0]['price'] ?> &euro;
 
                             </p>
 
                     </div>
-
-                <?php
-                }
-                ?>
 
                 </div>
        </div>
